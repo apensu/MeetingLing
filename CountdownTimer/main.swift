@@ -257,23 +257,28 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         alert.addButton(withTitle: "确定")
         alert.addButton(withTitle: "取消")
 
-        let minField = NSTextField(frame: NSRect(x: 0, y: 0, width: 64, height: 24))
+        let minField = NSTextField(frame: NSRect(x: 0, y: 20, width: 64, height: 24))
         minField.stringValue = String(curMin)
-        let secField = NSTextField(frame: NSRect(x: 116, y: 0, width: 64, height: 24))
+        let secField = NSTextField(frame: NSRect(x: 116, y: 20, width: 64, height: 24))
         secField.stringValue = String(curSec)
 
         let minLabel = NSTextField(labelWithString: "分钟")
-        minLabel.frame = NSRect(x: 0, y: 26, width: 64, height: 16)
+        minLabel.frame = NSRect(x: 0, y: 46, width: 64, height: 16)
         let secLabel = NSTextField(labelWithString: "秒")
-        secLabel.frame = NSRect(x: 116, y: 26, width: 64, height: 16)
+        secLabel.frame = NSRect(x: 116, y: 46, width: 64, height: 16)
 
         let customLabel = NSTextField(labelWithString: "自定义时长（分钟 / 秒）：")
-        customLabel.frame = NSRect(x: 0, y: 48, width: 260, height: 16)
+        customLabel.frame = NSRect(x: 0, y: 68, width: 260, height: 16)
 
         let presetLabel = NSTextField(labelWithString: "预设时长：")
-        presetLabel.frame = NSRect(x: 6, y: 104, width: 120, height: 18)
+        presetLabel.frame = NSRect(x: 6, y: 124, width: 120, height: 16)
 
-        let container = NSView(frame: NSRect(x: 0, y: 0, width: 280, height: 122))
+        let contactLabel = NSTextField(labelWithString: "作者：Apen.Su (itersuxy@163.com)")
+        contactLabel.frame = NSRect(x: 0, y: 0, width: 280, height: 14)
+        contactLabel.font = NSFont.systemFont(ofSize: 11)
+        contactLabel.textColor = NSColor.secondaryLabelColor
+
+        let container = NSView(frame: NSRect(x: 0, y: 0, width: 280, height: 140))
         container.addSubview(minLabel)
         container.addSubview(secLabel)
         container.addSubview(minField)
@@ -283,6 +288,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         container.addSubview(presetButton("30 分钟", 30 * 60, x: 6))
         container.addSubview(presetButton("45 分钟", 45 * 60, x: 98))
         container.addSubview(presetButton("60 分钟", 60 * 60, x: 190))
+        container.addSubview(contactLabel)
 
         durationMinField = minField
         durationSecField = secField
@@ -303,7 +309,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func presetButton(_ title: String, _ seconds: Int, x: CGFloat) -> NSButton {
         let b = NSButton(title: title, target: self, action: #selector(presetSelected(_:)))
         b.tag = seconds
-        b.frame = NSRect(x: x, y: 70, width: 84, height: 28)
+        b.frame = NSRect(x: x, y: 90, width: 84, height: 28)
         b.bezelStyle = .rounded
         b.font = NSFont.systemFont(ofSize: 14)
         return b
