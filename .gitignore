@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# 构建产物
+CountdownTimer/Countdown
+CountdownTimer/MeetingLing
+CountdownTimer/MeetingLing_arm64
+CountdownTimer/MeetingLing_x86_64
+CountdownTimer/.tmp/
+CountdownTimer/.swiftmodulecache/
+CountdownTimer/AppIcon.iconset/
+
+# 打包产物
+会议铃铛.app/
+会议铃铛.app.zip
