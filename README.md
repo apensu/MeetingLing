@@ -64,4 +64,4 @@ MeetingLing/
 
 ## 👤 作者
 
-© itersuxy@163.com
+© Apen.Su (itersuxy@163.com)
